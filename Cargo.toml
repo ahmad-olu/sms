@@ -1,8 +1,10 @@
 [workspace]
 members = [
-    "sms-back",
-    "sms-front",
-    "shared"
-]
+    "crates/api",
+    "crates/web",
+    "crates/shared",
+    "crates/domain",
+    "crates/db"
+    ]
 
 resolver = "2"

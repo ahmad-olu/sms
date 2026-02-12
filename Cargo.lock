@@ -30,6 +30,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5f0e0fee31ef5ed1ba1316088939cea399010ed7731dba877ed44aeb407a75ea"
 
 [[package]]
+name = "api"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "serde",
+ "serde_json",
+ "shared",
+ "tokio",
+]
+
+[[package]]
 name = "async-lock"
 version = "3.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -354,6 +365,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d7a1e2f27636f116493b8b860f5546edb47c8d8f8ea73e1d2a20be88e28d1fea"
 
 [[package]]
+name = "db"
+version = "0.1.0"
+
+[[package]]
 name = "derive-where"
 version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -384,6 +399,10 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "domain"
+version = "0.1.0"
 
 [[package]]
 name = "drain_filter_polyfill"
@@ -1922,34 +1941,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 
 [[package]]
-name = "sms-back"
-version = "0.1.0"
-dependencies = [
- "axum",
- "serde",
- "serde_json",
- "shared",
- "tokio",
-]
-
-[[package]]
-name = "sms-front"
-version = "0.1.0"
-dependencies = [
- "axum",
- "console_error_panic_hook",
- "leptos",
- "leptos_axum",
- "leptos_meta",
- "leptos_router",
- "reqwasm",
- "serde",
- "shared",
- "tokio",
- "wasm-bindgen",
-]
-
-[[package]]
 name = "socket2"
 version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2515,6 +2506,23 @@ dependencies = [
  "quote",
  "sha2",
  "syn",
+]
+
+[[package]]
+name = "web"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "console_error_panic_hook",
+ "leptos",
+ "leptos_axum",
+ "leptos_meta",
+ "leptos_router",
+ "reqwasm",
+ "serde",
+ "shared",
+ "tokio",
+ "wasm-bindgen",
 ]
 
 [[package]]

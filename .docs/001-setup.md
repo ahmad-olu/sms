@@ -27,3 +27,5 @@ resolver = "2"
 ```
 
 NOTE: to run leptos `cargo leptos watch`
+NOTE: Run the API (Axum server) `cargo run -p api`
+NOTE: Run the WEB (leptos) `cargo leptos watch -p web`
