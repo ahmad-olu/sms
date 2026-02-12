@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "sms-back",
+    "sms-front",
+    "shared"
+]
+
+resolver = "2"
