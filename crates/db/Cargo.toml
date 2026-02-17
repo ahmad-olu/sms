@@ -5,5 +5,7 @@ edition = "2024"
 license = "AGPL-3.0"
 
 [dependencies]
+anyhow = "1.0.101"
+once_cell = "1.21.3"
 surrealdb = { version = "3.0.0", features = ["kv-rocksdb"] }
 thiserror = "2.0.18"

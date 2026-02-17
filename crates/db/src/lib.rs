@@ -11,11 +11,12 @@
 use anyhow::Result;
 use once_cell::sync::OnceCell;
 use surrealdb::Surreal;
+// use surrealdb::engine::local::Db;
 // use surrealdb::engine::local::{Db, RocksDb};
-use surrealdb::engine::remote::ws::Ws;
+use surrealdb::engine::remote::ws::{Client, Ws};
 use surrealdb::opt::auth::Root;
 
-static DB: OnceCell<Surreal<Db>> = OnceCell::new();
+static DB: OnceCell<Surreal<Client>> = OnceCell::new();
 
 pub async fn init_db() -> Result<()> {
     let db = Surreal::new::<Ws>("localhost:8000").await?;
@@ -67,7 +68,7 @@ pub async fn init_db() -> Result<()> {
     Ok(())
 }
 
-pub fn get_db() -> &'static Surreal<Db> {
+pub fn get_db() -> &'static Surreal<Client> {
     DB.get().expect("Database not initialized")
 }
 
