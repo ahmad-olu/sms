@@ -2,6 +2,9 @@
 api:
     cargo run -p api
 
+apiw:
+    cd crates/api && systemfd --no-pid -s http::3000 -- cargo watch -x run
+
 # Run Leptos dev server
 # cd crates/web && cargo leptos watch
 web:
