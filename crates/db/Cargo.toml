@@ -5,3 +5,5 @@ edition = "2024"
 license = "AGPL-3.0"
 
 [dependencies]
+surrealdb = { version = "3.0.0", features = ["kv-rocksdb"] }
+thiserror = "2.0.18"
