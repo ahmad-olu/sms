@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  surrealdb:
+    image: surrealdb/surrealdb:latest
+    pull_policy: always
+    user: "0:0"
+    ports:
+      - "8011:8000"
+    volumes:
+      - /mydata:/mydata
+    command:
+      - start
+      - --user
+      - root
+      - --pass
+      - secret
+      - rocksdb:/mydata/mydatabase.db

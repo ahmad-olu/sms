@@ -9,6 +9,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 use serde::{Deserialize, Serialize};
+pub mod models;
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct UserDto {

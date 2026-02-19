@@ -2,3 +2,6 @@
 plugins
 target
 enterprise
+crates/db/schemas
+crates/db/migrations
+.env
