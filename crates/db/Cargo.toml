@@ -11,3 +11,7 @@ surrealdb = { version = "3.0.0", features = ["kv-rocksdb"] }
 surrealdb-migrations = "2.4.0"
 thiserror = "2.0.18"
 tokio = { version = "1.49.0", features = ["macros"] }
+shared = { path = "../shared" }
+serde = { version = "1.0.228", features = ["derive"] }
+chrono = { version = "0.4.43", features = ["serde"] }
+surrealdb-types = "3.0.0"

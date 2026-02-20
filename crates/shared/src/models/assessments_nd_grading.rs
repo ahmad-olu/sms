@@ -1,10 +1,11 @@
 use chrono::{DateTime, NaiveDate, Utc};
 use serde::{Deserialize, Serialize};
-use surrealdb::types::{Decimal, RecordId};
+// use surrealdb::types::{Decimal, RecordId};
+use surrealdb_types::{Datetime, Decimal, RecordId, SurrealValue, Value};
 
 use crate::models::AssessmentType;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct Assessment {
     pub id: Option<RecordId>,
     pub school_id: RecordId,
@@ -14,13 +15,13 @@ pub struct Assessment {
     pub assessment_type: AssessmentType,
     pub assessment_name: Option<String>,
     pub max_score: Decimal,
-    pub assessment_date: Option<NaiveDate>,
+    pub assessment_date: Option<Value>, //Option<NaiveDate>,
     pub created_by: Option<RecordId>,
-    pub created_at: DateTime<Utc>,
-    pub updated_at: DateTime<Utc>,
+    pub created_at: Datetime,
+    pub updated_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct StudentScore {
     pub id: Option<RecordId>,
     pub assessment_id: RecordId,
@@ -28,14 +29,14 @@ pub struct StudentScore {
     pub score_obtained: Option<Decimal>,
     pub remarks: Option<String>,
     pub entered_by: Option<RecordId>,
-    pub entered_at: DateTime<Utc>,
-    pub updated_at: DateTime<Utc>,
+    pub entered_at: Datetime,
+    pub updated_at: Datetime,
     pub verified: bool,
     pub verified_by: Option<RecordId>,
-    pub verified_at: Option<DateTime<Utc>>,
+    pub verified_at: Option<Datetime>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct GradingScheme {
     pub id: Option<RecordId>,
     pub school_id: RecordId,
@@ -45,10 +46,10 @@ pub struct GradingScheme {
     pub grade: String,
     pub grade_point: Decimal,
     pub remark: Option<String>,
-    pub created_at: DateTime<Utc>,
+    pub created_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct ReportCard {
     pub id: Option<RecordId>,
     pub student_id: RecordId,
@@ -65,16 +66,16 @@ pub struct ReportCard {
     pub times_school_opened: Option<i32>,
     pub teacher_comment: Option<String>,
     pub principal_comment: Option<String>,
-    pub next_term_begins: Option<NaiveDate>,
+    pub next_term_begins: Option<Value>, //Option<NaiveDate>,
     pub generated_by: Option<RecordId>,
-    pub generated_at: DateTime<Utc>,
+    pub generated_at: Datetime,
     pub published: bool,
-    pub published_at: Option<DateTime<Utc>>,
+    pub published_at: Option<Datetime>,
     pub pdf_url: Option<String>,
-    pub created_at: DateTime<Utc>,
+    pub created_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct ReportCardScore {
     pub id: Option<RecordId>,
     pub report_card_id: RecordId,

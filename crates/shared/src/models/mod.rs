@@ -1,6 +1,7 @@
 use chrono::{DateTime, NaiveDate, Utc};
 use serde::{Deserialize, Serialize};
-use surrealdb::types::RecordId;
+// use surrealdb::types::{RecordId, SurrealValue};
+use surrealdb_types::{Datetime, RecordId, SurrealValue, Value};
 
 use crate::models::{
     academic::{Class, Subject},
@@ -25,7 +26,7 @@ pub mod modules {
     pub use super::system_and_audit as audit;
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum SubscriptionPlan {
     Starter,
@@ -35,7 +36,7 @@ pub enum SubscriptionPlan {
     Enterprise,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum SubscriptionStatus {
     Active,
@@ -44,7 +45,7 @@ pub enum SubscriptionStatus {
     Cancelled,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum UserType {
     SuperAdmin,
@@ -55,7 +56,7 @@ pub enum UserType {
     Student,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum UserStatus {
     Active,
@@ -63,14 +64,14 @@ pub enum UserStatus {
     Inactive,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum Gender {
     Male,
     Female,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum StudentStatus {
     Active,
@@ -79,7 +80,7 @@ pub enum StudentStatus {
     Suspended,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum RelationshipType {
     Father,
@@ -88,7 +89,7 @@ pub enum RelationshipType {
     Other,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum ClassLevel {
     Nursery,
@@ -97,14 +98,14 @@ pub enum ClassLevel {
     SeniorSecondary,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum SubjectType {
     Core,
     Elective,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum AssessmentType {
     Ca1,
@@ -115,7 +116,7 @@ pub enum AssessmentType {
     Assignment,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum AttendanceStatus {
     Present,
@@ -124,7 +125,7 @@ pub enum AttendanceStatus {
     Excused,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum FeeType {
     Tuition,
@@ -137,7 +138,7 @@ pub enum FeeType {
     Other,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum FeeFrequency {
     PerTerm,
@@ -145,7 +146,7 @@ pub enum FeeFrequency {
     OneTime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum InvoiceStatus {
     Unpaid,
@@ -155,7 +156,7 @@ pub enum InvoiceStatus {
     Cancelled,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum PaymentMethod {
     Cash,
@@ -166,7 +167,7 @@ pub enum PaymentMethod {
     Ussd,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum PaymentStatus {
     Pending,
@@ -175,7 +176,7 @@ pub enum PaymentStatus {
     Refunded,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum ReminderType {
     Sms,
@@ -184,7 +185,7 @@ pub enum ReminderType {
     Whatsapp,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum DeliveryStatus {
     Sent,
@@ -193,7 +194,7 @@ pub enum DeliveryStatus {
     Bounced,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum TargetAudience {
     All,
@@ -203,7 +204,7 @@ pub enum TargetAudience {
     SpecificClass,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum Priority {
     Low,
@@ -212,7 +213,7 @@ pub enum Priority {
     Urgent,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum RsvpResponse {
     Attending,
@@ -220,7 +221,7 @@ pub enum RsvpResponse {
     Maybe,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum ActionType {
     Login,
@@ -234,7 +235,7 @@ pub enum ActionType {
     Payment,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum NotificationType {
     FeeReminder,
@@ -246,7 +247,7 @@ pub enum NotificationType {
     System,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum SmsType {
     FeeReminder,
@@ -257,7 +258,7 @@ pub enum SmsType {
     Other,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub enum SettingType {
     Text,
@@ -266,7 +267,7 @@ pub enum SettingType {
     Json,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct School {
     pub id: Option<RecordId>,
     pub school_name: String,
@@ -277,13 +278,13 @@ pub struct School {
     pub school_motto: Option<String>,
     pub total_students: i32,
     pub subscription_plan: SubscriptionPlan,
-    pub subscription_expiry_date: Option<DateTime<Utc>>,
+    pub subscription_expiry_date: Option<Datetime>,
     pub subscription_status: SubscriptionStatus,
-    pub created_at: DateTime<Utc>,
-    pub updated_at: DateTime<Utc>,
+    pub created_at: Datetime,
+    pub updated_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct User {
     pub id: Option<RecordId>,
     pub school_id: RecordId,
@@ -294,14 +295,14 @@ pub struct User {
     pub phone_number: Option<String>,
     pub password_hash: String,
     pub status: UserStatus,
-    pub last_login: Option<DateTime<Utc>>,
+    pub last_login: Option<Datetime>,
     pub email_verified: bool,
     pub phone_verified: bool,
-    pub created_at: DateTime<Utc>,
-    pub updated_at: DateTime<Utc>,
+    pub created_at: Datetime,
+    pub updated_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct Student {
     pub id: Option<RecordId>,
     pub school_id: RecordId,
@@ -309,21 +310,21 @@ pub struct Student {
     pub first_name: String,
     pub middle_name: Option<String>,
     pub last_name: String,
-    pub date_of_birth: NaiveDate,
+    pub date_of_birth: Value, //NaiveDate,
     pub gender: Gender,
     pub address: Option<String>,
     pub current_class_id: Option<RecordId>,
-    pub admission_date: NaiveDate,
+    pub admission_date: Value, //NaiveDate,
     pub status: StudentStatus,
     pub profile_photo_url: Option<String>,
     pub blood_group: Option<String>,
     pub genotype: Option<String>,
     pub medical_conditions: Option<String>,
-    pub created_at: DateTime<Utc>,
-    pub updated_at: DateTime<Utc>,
+    pub created_at: Datetime,
+    pub updated_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct Parent {
     pub id: Option<RecordId>,
     pub user_id: RecordId,
@@ -332,17 +333,17 @@ pub struct Parent {
     pub home_address: Option<String>,
     pub office_address: Option<String>,
     pub emergency_contact: Option<String>,
-    pub created_at: DateTime<Utc>,
+    pub created_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct StudentParent {
     pub id: Option<RecordId>,
     #[serde(rename = "in")]
     pub student_id: RecordId,
     pub out: RecordId, // parent_id
     pub primary_contact: bool,
-    pub created_at: DateTime<Utc>,
+    pub created_at: Datetime,
 }
 
 pub trait SchoolScoped {
@@ -350,13 +351,13 @@ pub trait SchoolScoped {
 }
 
 pub trait Timestamped {
-    fn created_at(&self) -> DateTime<Utc>;
-    fn updated_at(&self) -> Option<DateTime<Utc>>;
+    fn created_at(&self) -> Datetime;
+    fn updated_at(&self) -> Option<Datetime>;
 }
 
 pub trait SoftDeletable {
     fn is_deleted(&self) -> bool;
-    fn deleted_at(&self) -> Option<DateTime<Utc>>;
+    fn deleted_at(&self) -> Option<Datetime>;
 }
 
 pub trait Auditable {
@@ -401,31 +402,31 @@ impl SchoolScoped for Invoice {
 }
 
 impl Timestamped for School {
-    fn created_at(&self) -> DateTime<Utc> {
+    fn created_at(&self) -> Datetime {
         self.created_at
     }
 
-    fn updated_at(&self) -> Option<DateTime<Utc>> {
+    fn updated_at(&self) -> Option<Datetime> {
         Some(self.updated_at)
     }
 }
 
 impl Timestamped for User {
-    fn created_at(&self) -> DateTime<Utc> {
+    fn created_at(&self) -> Datetime {
         self.created_at
     }
 
-    fn updated_at(&self) -> Option<DateTime<Utc>> {
+    fn updated_at(&self) -> Option<Datetime> {
         Some(self.updated_at)
     }
 }
 
 impl Timestamped for Student {
-    fn created_at(&self) -> DateTime<Utc> {
+    fn created_at(&self) -> Datetime {
         self.created_at
     }
 
-    fn updated_at(&self) -> Option<DateTime<Utc>> {
+    fn updated_at(&self) -> Option<Datetime> {
         Some(self.updated_at)
     }
 }

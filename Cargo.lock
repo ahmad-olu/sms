@@ -1588,9 +1588,13 @@ name = "db"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "chrono",
  "once_cell",
+ "serde",
+ "shared",
  "surrealdb 3.0.0",
  "surrealdb-migrations",
+ "surrealdb-types",
  "thiserror 2.0.18",
  "tokio",
 ]
@@ -5899,6 +5903,7 @@ dependencies = [
  "serde",
  "serde_json",
  "surrealdb 3.0.0",
+ "surrealdb-types",
 ]
 
 [[package]]
