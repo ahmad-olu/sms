@@ -5,7 +5,7 @@ use surrealdb_types::{Datetime, Decimal, RecordId, SurrealValue, Value};
 
 use crate::models::AttendanceStatus;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct Attendance {
     pub id: Option<RecordId>,
     pub student_id: RecordId,
@@ -19,7 +19,7 @@ pub struct Attendance {
     pub updated_at: Datetime,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize)]
 pub struct AttendanceSummary {
     pub id: Option<RecordId>,
     pub student_id: RecordId,

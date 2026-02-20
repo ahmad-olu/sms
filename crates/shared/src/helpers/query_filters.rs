@@ -1,10 +1,9 @@
-use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
-use surrealdb::types::RecordId;
+use surrealdb_types::{RecordId, SurrealValue, Value};
 
 use crate::models::{AttendanceStatus, InvoiceStatus, StudentStatus};
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, Default)]
 pub struct StudentFilter {
     pub school_id: Option<RecordId>,
     pub class_id: Option<RecordId>,
@@ -12,7 +11,7 @@ pub struct StudentFilter {
     pub search: Option<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, Default)]
 pub struct InvoiceFilter {
     pub school_id: Option<RecordId>,
     pub student_id: Option<RecordId>,
@@ -20,11 +19,11 @@ pub struct InvoiceFilter {
     pub status: Option<InvoiceStatus>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, SurrealValue, Serialize, Deserialize, Default)]
 pub struct AttendanceFilter {
     pub student_id: Option<RecordId>,
     pub class_id: Option<RecordId>,
-    pub date_from: Option<NaiveDate>,
-    pub date_to: Option<NaiveDate>,
+    pub date_from: Option<Value>, //Option<NaiveDate>,
+    pub date_to: Option<Value>,   //Option<NaiveDate>,
     pub status: Option<AttendanceStatus>,
 }
