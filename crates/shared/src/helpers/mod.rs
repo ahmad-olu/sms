@@ -1,5 +1,6 @@
 pub mod api_responses;
 pub mod create_update_dtos;
+pub mod generators;
 pub mod query_filters;
 pub mod surreal_util;
 

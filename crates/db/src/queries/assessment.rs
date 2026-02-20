@@ -1,12 +1,15 @@
 use crate::error::DbResult;
 use shared::{
     helpers::create_update_dtos::EnterScoreDto,
-    models::assessments_nd_grading::{
-        Assessment, GradingScheme, ReportCard, ReportCardScore, StudentScore,
+    models::{
+        Student,
+        assessments_nd_grading::{
+            Assessment, GradingScheme, ReportCard, ReportCardScore, StudentScore,
+        },
     },
 };
 use surrealdb::{Surreal, engine::remote::ws::Client};
-use surrealdb_types::{SurrealValue, Value};
+use surrealdb_types::{Decimal, SurrealValue, Value};
 
 const ASSESSMENT_TABLE: &str = "assessments";
 const STUDENT_SCORE_TABLE: &str = "student_scores";
@@ -452,5 +455,35 @@ impl ReportCardQ {
             .await?
             .take(0)?;
         Ok(card)
+    }
+
+    // Check if a score already exists before inserting (to decide create vs update)
+    pub async fn score_exists(
+        &self,
+        sdb: &Surreal<Client>,
+        assessment_id: String,
+        student_id: String,
+    ) -> DbResult<bool> {
+        todo!()
+    }
+
+    // Get all students who have NOT yet been scored for an assessment
+    pub async fn get_unscored_students(
+        &self,
+        sdb: &Surreal<Client>,
+        assessment_id: String,
+        class_id: String,
+    ) -> DbResult<Vec<Student>> {
+        todo!()
+    }
+
+    // Get class ranking for a term
+    pub async fn get_class_ranking(
+        &self,
+        sdb: &Surreal<Client>,
+        class_id: String,
+        term_id: String,
+    ) -> DbResult<Vec<(Student, Decimal)>> {
+        todo!()
     }
 }

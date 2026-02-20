@@ -311,4 +311,31 @@ impl ParentQ {
             .take(0)?;
         Ok(result)
     }
+
+    // Count all students by status for a school
+    pub async fn count_by_status(
+        &self,
+        sdb: &Surreal<Client>,
+        school_id: String,
+    ) -> DbResult<Vec<(StudentStatus, u64)>> {
+        todo!()
+    }
+
+    // Get students without a class assigned (unassigned)
+    pub async fn get_unassigned(
+        &self,
+        sdb: &Surreal<Client>,
+        school_id: String,
+    ) -> DbResult<Vec<Student>> {
+        todo!()
+    }
+
+    // Get student by ID (basic fetch)
+    pub async fn get_by_id(
+        &self,
+        sdb: &Surreal<Client>,
+        student_id: String,
+    ) -> DbResult<Option<Student>> {
+        todo!()
+    }
 }

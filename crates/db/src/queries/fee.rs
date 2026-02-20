@@ -397,4 +397,30 @@ impl PaymentReminderQ {
             .take(0)?;
         Ok(reminders)
     }
+
+    // Get all invoices with outstanding balance older than N days (for overdue marking)
+    pub async fn get_overdue_candidates(
+        &self,
+        sdb: &Surreal<Client>,
+        school_id: String,
+        days_overdue: u32,
+    ) -> DbResult<Vec<Invoice>> {
+        todo!()
+    }
+
+    // Mark overdue invoices in bulk
+    pub async fn mark_overdue(&self, sdb: &Surreal<Client>, school_id: String) -> DbResult<u64> {
+        todo!()
+    } // returns count updated
+
+    // Get payment stats for a date range
+    pub async fn get_payment_stats(
+        &self,
+        sdb: &Surreal<Client>,
+        school_id: String,
+        from: Value, //NaiveDate,
+        to: Value,   // NaiveDate
+    ) -> DbResult<Value> {
+        todo!()
+    }
 }

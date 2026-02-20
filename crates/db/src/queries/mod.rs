@@ -1,6 +1,8 @@
 pub mod academic;
 pub mod assessment;
 pub mod attendance;
+pub mod auth;
+pub mod bulk;
 pub mod communication;
 pub mod fee;
 pub mod school;

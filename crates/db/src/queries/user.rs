@@ -1,4 +1,7 @@
-use crate::error::DbResult;
+use crate::{
+    error::DbResult,
+    pagination::{Page, PaginatedResult},
+};
 use shared::models::{User, UserStatus, UserType};
 use surrealdb::{Surreal, engine::remote::ws::Client};
 use surrealdb_types::Value;
@@ -150,5 +153,24 @@ impl UserQ {
             .await?
             .take(0)?;
         Ok(result)
+    }
+
+    // Get user by ID (basic)
+    pub async fn get_by_id(
+        &self,
+        sdb: &Surreal<Client>,
+        user_id: String,
+    ) -> DbResult<Option<User>> {
+        todo!()
+    }
+
+    // Get all users in a school (paginated)
+    pub async fn get_all(
+        &self,
+        sdb: &Surreal<Client>,
+        school_id: String,
+        page: Page,
+    ) -> DbResult<PaginatedResult<User>> {
+        todo!()
     }
 }

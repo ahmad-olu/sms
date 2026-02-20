@@ -17,6 +17,8 @@ use surrealdb::engine::remote::ws::{Client, Ws};
 use surrealdb::opt::auth::Root;
 
 pub mod error;
+pub mod helpers;
+pub mod pagination;
 pub mod queries;
 
 static DB: OnceCell<Surreal<Client>> = OnceCell::new();
